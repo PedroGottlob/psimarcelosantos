@@ -13,3 +13,7 @@ ErrorDocument 404 /404.html
   ExpiresByType image/png  "access plus 1 year"
   ExpiresByType text/css   "access plus 1 month"
 </IfModule>
+
+<FilesMatch "\.md$">
+  Require all denied
+</FilesMatch>
