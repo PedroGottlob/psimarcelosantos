@@ -1,4 +1,4 @@
-  :root{
+:root{
     --bg-deep:#123039;
     --bg-panel:#193d47;
     --bg-darker:#0b2027;
@@ -485,3 +485,33 @@
     details[open] p{animation:none;}
     summary .plus::after{transition:none;}
   }
+
+  .whats-float{
+    position:fixed;
+    right:calc(20px + env(safe-area-inset-right, 0px));
+    bottom:calc(20px + env(safe-area-inset-bottom, 0px));
+    z-index:1000;
+    width:58px; height:58px;
+    border-radius:50%;
+    background:#25d366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.35);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .whats-float .ico{
+    width:30px; height:30px;
+    background:#fff;
+    -webkit-mask:url("../img/whatsapp.svg") center / contain no-repeat;
+            mask:url("../img/whatsapp.svg") center / contain no-repeat;
+  }
+  .whats-float:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.4);}
+  .whats-float:focus-visible{outline:2px solid var(--gold); outline-offset:4px;}
+  @media (max-width:520px){
+    .whats-float{width:52px; height:52px; right:calc(16px + env(safe-area-inset-right, 0px)); bottom:calc(16px + env(safe-area-inset-bottom, 0px));}
+  }
+  /* respiro no fim da página para o botão não cobrir o rodapé no celular */
+  @media (max-width:760px){
+    footer{padding-bottom:88px;}
+  }
+  @media (prefers-reduced-motion: reduce){ .whats-float{transition:none;} }
+  @media print{ .whats-float{display:none;} }
