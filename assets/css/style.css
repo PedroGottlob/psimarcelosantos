@@ -515,3 +515,5 @@
   }
   @media (prefers-reduced-motion: reduce){ .whats-float{transition:none;} }
   @media print{ .whats-float{display:none;} }
+    /* logo da clínica em selo redondo */
+  .clinic-logo{border-radius:50%; object-fit:cover;}
