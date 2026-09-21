@@ -37,3 +37,22 @@
     if (e.matches) { obs.disconnect(); mostrarTudo(); }
   });
 })();
+
+// Vídeo do YouTube: mostra só a miniatura e carrega o player no clique.
+// Fica num bloco separado de propósito: o "return" do bloco de cima
+// (movimento reduzido) não pode impedir o vídeo de funcionar.
+(function () {
+  'use strict';
+  document.querySelectorAll('.yt-facade').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + link.getAttribute('data-yt') + '?autoplay=1&rel=0';
+      f.title = 'V\u00eddeo de Marcelo Santos';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      link.replaceWith(f);
+      f.focus();
+    });
+  });
+})();
